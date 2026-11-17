@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient_mesh"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvMealContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="28dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:padding="26dp">
+
+                <ImageView
+                    android:id="@+id/ivLogo"
+                    android:layout_width="68dp"
+                    android:layout_height="68dp"
+                    android:src="@android:drawable/ic_menu_gallery"
+                    android:background="@drawable/bg_badge"
+                    android:padding="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🍽️ Bistro Express Order"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="#1E1E2C"
+                    android:layout_marginTop="12dp" />
+
+                <TextView
+                    android:id="@+id/tvClickPrompt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="1. Select Dining Customers:"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#5E4AE3"
+                    android:layout_marginTop="20dp" />
+
+                <LinearLayout
+                    android:id="@+id/llCustomers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_input_box"
+                    android:padding="12dp"
+                    android:layout_marginTop="8dp">
+
+                    <CheckBox
+                        android:id="@+id/cbCustomer1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="🧑 Customer 1"
+                        android:textStyle="bold"
+                        android:textColor="#2B2D42"
+                        android:textSize="14sp" />
+
+                    <CheckBox
+                        android:id="@+id/cbCustomer2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="👩 Customer 2"
+                        android:textStyle="bold"
+                        android:textColor="#2B2D42"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvSelectItemPrompt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="2. Choose Meal Set:"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#5E4AE3"
+                    android:layout_marginTop="18dp" />
+
+                <RadioGroup
+                    android:id="@+id/rgItems"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_input_box"
+                    android:padding="12dp"
+                    android:layout_marginTop="8dp">
+
+                    <RadioButton
+                        android:id="@+id/rbBreakfast"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🥐  Breakfast Combo"
+                        android:textSize="15sp"
+                        android:textColor="#2B2D42"
+                        android:paddingVertical="4dp" />
+
+                    <RadioButton
+                        android:id="@+id/rbLunch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🍱  Signature Lunch"
+                        android:textSize="15sp"
+                        android:textColor="#2B2D42"
+                        android:paddingVertical="4dp" />
+
+                    <RadioButton
+                        android:id="@+id/rbDinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🥩  Deluxe Dinner"
+                        android:textSize="15sp"
+                        android:textColor="#2B2D42"
+                        android:paddingVertical="4dp" />
+                </RadioGroup>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnConfirmOrder"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:text="✓  PLACE ORDER"
+                    android:textAllCaps="false"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/btn_gradient_teal"
+                    android:stateListAnimator="@null"
+                    android:layout_marginTop="20dp" />
+
+                <TextView
+                    android:id="@+id/tvResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Please select customer &amp; meal item above."
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#5E4AE3"
+                    android:background="@drawable/bg_badge"
+                    android:padding="14dp"
+                    android:gravity="center"
+                    android:layout_marginTop="14dp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnReturn"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="←  Return to Game Center"
+                    android:textAllCaps="false"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#4A4E69"
+                    android:background="@drawable/btn_tonal_secondary"
+                    android:stateListAnimator="@null"
+                    android:layout_marginTop="10dp" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

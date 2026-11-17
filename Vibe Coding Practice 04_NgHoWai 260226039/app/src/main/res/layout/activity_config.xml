@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient_mesh"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="28dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="26dp">
+
+                <TextView
+                    android:id="@+id/tvConfigTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⚙️ Preferences"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="#1E1E2C"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:id="@+id/tvAccountLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="👤 Account Credentials"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#5E4AE3"
+                    android:layout_marginTop="22dp" />
+
+                <EditText
+                    android:id="@+id/etConfigUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="New Username"
+                    android:background="@drawable/bg_input_box"
+                    android:paddingHorizontal="16dp"
+                    android:textSize="15sp"
+                    android:layout_marginTop="8dp" />
+
+                <EditText
+                    android:id="@+id/etConfigPass"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="New Password"
+                    android:background="@drawable/bg_input_box"
+                    android:paddingHorizontal="16dp"
+                    android:textSize="15sp"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:id="@+id/tvDifficultyLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🎯 Number Game Difficulty"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#5E4AE3"
+                    android:layout_marginTop="22dp" />
+
+                <RadioGroup
+                    android:id="@+id/rgMaxRange"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_input_box"
+                    android:padding="12dp"
+                    android:layout_marginTop="8dp">
+
+                    <RadioButton
+                        android:id="@+id/rbEasy"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🟢  Easy Mode (0 ~ 50)" />
+
+                    <RadioButton
+                        android:id="@+id/rbNormal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🟡  Normal Mode (0 ~ 100)" />
+
+                    <RadioButton
+                        android:id="@+id/rbHard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🔴  Hardcore Mode (0 ~ 500)" />
+                </RadioGroup>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnSaveConfig"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:text="💾  SAVE CHANGES"
+                    android:textAllCaps="false"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/btn_gradient_primary"
+                    android:stateListAnimator="@null"
+                    android:layout_marginTop="22dp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnBackToGame"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Cancel"
+                    android:textAllCaps="false"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#4A4E69"
+                    android:background="@drawable/btn_tonal_secondary"
+                    android:stateListAnimator="@null"
+                    android:layout_marginTop="10dp" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

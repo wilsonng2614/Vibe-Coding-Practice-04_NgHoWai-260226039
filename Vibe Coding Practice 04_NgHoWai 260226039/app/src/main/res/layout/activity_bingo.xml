@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient_mesh"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="14dp">
+
+        <!-- Main rounded white card container -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="28dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:padding="18dp">
+
+                <!-- Top player username and round number info badge -->
+                <TextView
+                    android:id="@+id/tvBingoHeaderInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="👤 Player: admin  |  Round #1"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="#5E4AE3"
+                    android:background="@drawable/bg_badge"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="6dp" />
+
+                <!-- Game screen title -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🎱 Live Dual-Board Bingo"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="#1E1E2C"
+                    android:layout_marginTop="8dp" />
+
+                <!-- Lucky Draw Ball Display Banner -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_input_box"
+                    android:padding="12dp"
+                    android:layout_marginTop="10dp">
+
+                    <!-- Displays the most recently drawn lucky ball number -->
+                    <TextView
+                        android:id="@+id/tvLastBall"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:text="?"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:textColor="#FFFFFF"
+                        android:gravity="center"
+                        android:background="@drawable/btn_gradient_primary" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="14dp">
+
+                        <!-- Displays current game status and winning notifications -->
+                        <TextView
+                            android:id="@+id/tvBingoStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Click 'Draw Lucky Ball' to start!"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="#1E1E2C" />
+
+                        <!-- Displays the history list of all drawn numbers in the current round -->
+                        <TextView
+                            android:id="@+id/tvDrawHistory"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Drawn (0/25): None"
+                            android:textSize="12sp"
+                            android:textColor="#7C809B"
+                            android:layout_marginTop="4dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Action button row: Draw Lucky Ball & Reshuffle New Cards -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnDrawNumber"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1.6"
+                        android:text="🎲 Draw Lucky Ball"
+                        android:textAllCaps="false"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="#FFFFFF"
+                        android:background="@drawable/btn_gradient_primary"
+                        android:stateListAnimator="@null"
+                        android:layout_marginEnd="8dp" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnNewBingoRound"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:text="🔄 New Cards"
+                        android:textAllCaps="false"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#4A4E69"
+                        android:background="@drawable/btn_tonal_secondary"
+                        android:stateListAnimator="@null" />
+                </LinearLayout>
+
+                <!-- Board 1: Player's 5x5 Bingo Card -->
+                <TextView
+                    android:id="@+id/tvPlayerLines"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="🟣 Your Bingo Card (Best Line: 0 / 5)"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#5E4AE3"
+                    android:gravity="center"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="6dp" />
+
+                <GridLayout
+                    android:id="@+id/glPlayerBoard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:rowCount="5"
+                    android:columnCount="5"
+                    android:background="@drawable/bg_input_box"
+                    android:padding="6dp" />
+
+                <!-- Board 2: CPU's 5x5 Bingo Card (Live side-by-side comparison) -->
+                <TextView
+                    android:id="@+id/tvCpuLines"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="🟠 CPU's Bingo Card (Best Line: 0 / 5)"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#FF5E62"
+                    android:gravity="center"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="6dp" />
+
+                <GridLayout
+                    android:id="@+id/glCpuBoard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:rowCount="5"
+                    android:columnCount="5"
+                    android:background="@drawable/bg_input_box"
+                    android:padding="6dp" />
+
+                <!-- SQLiteDatabase Historical Winning Records Section -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#E4E7F2"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginBottom="10dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="🗄️ SQLite Winning Records"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#5E4AE3" />
+
+                    <!-- Button to clear all saved SQLite records -->
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnClearDb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:text="🗑️ Clear DB"
+                        android:textAllCaps="false"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="#D9383A"
+                        android:background="@drawable/btn_tonal_danger"
+                        android:paddingHorizontal="12dp"
+                        android:stateListAnimator="@null" />
+                </LinearLayout>
+
+                <!-- Displays formatted SQLite records (Username, Round, 5 Numbers, System Time) -->
+                <TextView
+                    android:id="@+id/tvSqliteRecords"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Loading SQLite records..."
+                    android:textSize="12sp"
+                    android:textColor="#2B2D42"
+                    android:fontFamily="monospace"
+                    android:background="@drawable/bg_input_box"
+                    android:padding="12dp"
+                    android:layout_marginTop="8dp" />
+
+                <!-- Button to return to the main Game Center screen -->
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnBackFromBingo"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="←  Back to Game Center"
+                    android:textAllCaps="false"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#4A4E69"
+                    android:background="@drawable/btn_tonal_secondary"
+                    android:stateListAnimator="@null"
+                    android:layout_marginTop="12dp" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
